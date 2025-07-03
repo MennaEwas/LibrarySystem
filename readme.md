@@ -124,10 +124,6 @@ Authorization: Basic YWRtaW46YWRtaW4xMjM=
 - `PUT /api/borrowing-transactions/{id}` - Update transaction
 - `DELETE /api/borrowing-transactions/{id}` - Delete transaction
 
-#### Authentication
-- `POST /api/auth/register` - Register new user
-- `GET /api/auth/me` - Get current user info
-
 ### Sample API Requests
 #### Create a New Book
 ```json
