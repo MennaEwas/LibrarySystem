@@ -1,0 +1,1634 @@
+{
+	"info": {
+		"_postman_id": "d3fcc747-1e6e-4152-8811-6c22786b0bb3",
+		"name": "Library Management System",
+		"description": "# 📄 Get started here\n\nThis template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n## 🔖 How to use this template\n\n- Replace the content given brackets (()) with your API's details.\n    \n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n    \n- The API has [rate and usage limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).\n    \n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n    \n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26059171",
+		"_collection_link": "https://warped-station-244043.postman.co/workspace/APITest~f71328de-81bb-4765-b4ad-6153be8b5aac/collection/26059171-d3fcc747-1e6e-4152-8811-6c22786b0bb3?action=share&source=collection_link&creator=26059171"
+	},
+	"item": [
+		{
+			"name": "UserManagement",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"password123\",\n    \"firstName\": \"New\",\n    \"lastName\": \"User\",\n    \"email\": \"newuser@library.com\",\n    \"role\": \"STAFF\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"password123\",\n    \"firstName\": \"New\",\n    \"lastName\": \"User\",\n    \"email\": \"newuser@library.com\",\n    \"role\": \"STAFF\"\n}\n"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspaceId}}",
+											"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 01:55:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"admin\",\n        \"password\": \"$2a$10$ygcShGVG5O0nyztCXCoNVuIep80SH9Tt.cSZwk06Y0wMxS8MiWyGC\",\n        \"firstName\": \"Admin\",\n        \"lastName\": \"User\",\n        \"email\": \"admin@library.com\",\n        \"role\": \"ADMINISTRATOR\",\n        \"enabled\": true,\n        \"createdAt\": null,\n        \"updatedAt\": null,\n        \"authorities\": [\n            {\n                \"authority\": \"ROLE_ADMINISTRATOR\"\n            }\n        ],\n        \"accountNonExpired\": true,\n        \"credentialsNonExpired\": true,\n        \"accountNonLocked\": true\n    },\n    {\n        \"id\": 2,\n        \"username\": \"librarian\",\n        \"password\": \"$2a$10$sAo18pHABDQPKTBdB1q/dOm2mdFxDz2UiKG0bmDQzEruvMrJ7iJSC\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Librarian\",\n        \"email\": \"librarian@library.com\",\n        \"role\": \"LIBRARIAN\",\n        \"enabled\": true,\n        \"createdAt\": null,\n        \"updatedAt\": null,\n        \"authorities\": [\n            {\n                \"authority\": \"ROLE_LIBRARIAN\"\n            }\n        ],\n        \"accountNonExpired\": true,\n        \"credentialsNonExpired\": true,\n        \"accountNonLocked\": true\n    },\n    {\n        \"id\": 3,\n        \"username\": \"staff\",\n        \"password\": \"$2a$10$HFc2jzSHglxurm.LW/WiSuS.tf4WMTdmHpgCh4iSFTH/g2zuCqD4O\",\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Staff\",\n        \"email\": \"staff@library.com\",\n        \"role\": \"STAFF\",\n        \"enabled\": true,\n        \"createdAt\": null,\n        \"updatedAt\": null,\n        \"authorities\": [\n            {\n                \"authority\": \"ROLE_STAFF\"\n            }\n        ],\n        \"accountNonExpired\": true,\n        \"credentialsNonExpired\": true,\n        \"accountNonLocked\": true\n    },\n    {\n        \"id\": 4,\n        \"username\": \"testuser\",\n        \"password\": \"$2a$10$bfxBwzlRtqSUI0v2YY0.4.L.pfjLXlQyHGJr0CyeBL9Jv53ra07Am\",\n        \"firstName\": \"Test\",\n        \"lastName\": \"User\",\n        \"email\": \"test@library.com\",\n        \"role\": \"LIBRARIAN\",\n        \"enabled\": true,\n        \"createdAt\": null,\n        \"updatedAt\": null,\n        \"authorities\": [\n            {\n                \"authority\": \"ROLE_LIBRARIAN\"\n            }\n        ],\n        \"accountNonExpired\": true,\n        \"credentialsNonExpired\": true,\n        \"accountNonLocked\": true\n    },\n    {\n        \"id\": 6,\n        \"username\": \"testus5r\",\n        \"password\": \"$2a$10$DtSeiVEyWW/wjth/X3.1u.9SkEmhqXYuXUFF0b1I7WLNQz6mvjHgm\",\n        \"firstName\": \"Test\",\n        \"lastName\": \"User\",\n        \"email\": \"tdst@library.com\",\n        \"role\": \"LIBRARIAN\",\n        \"enabled\": true,\n        \"createdAt\": null,\n        \"updatedAt\": null,\n        \"authorities\": [\n            {\n                \"authority\": \"ROLE_LIBRARIAN\"\n            }\n        ],\n        \"accountNonExpired\": true,\n        \"credentialsNonExpired\": true,\n        \"accountNonLocked\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/users/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/users/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 01:57:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"password\": \"$2a$10$ygcShGVG5O0nyztCXCoNVuIep80SH9Tt.cSZwk06Y0wMxS8MiWyGC\",\n    \"firstName\": \"Admin\",\n    \"lastName\": \"User\",\n    \"email\": \"admin@library.com\",\n    \"role\": \"ADMINISTRATOR\",\n    \"enabled\": true,\n    \"createdAt\": null,\n    \"updatedAt\": null,\n    \"authorities\": [\n        {\n            \"authority\": \"ROLE_ADMINISTRATOR\"\n        }\n    ],\n    \"accountNonExpired\": true,\n    \"credentialsNonExpired\": true,\n    \"accountNonLocked\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CreateUser",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testus5r\",\r\n    \"password\": \"test123\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"User\",\r\n    \"email\": \"menna@library.com\",\r\n    \"role\": \"LIBRARIAN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/users"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testus5r\",\r\n    \"password\": \"test123\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"User\",\r\n    \"email\": \"menna@library.com\",\r\n    \"role\": \"LIBRARIAN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/users"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:07:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"username\": \"testus5r\",\n    \"password\": \"$2a$10$Lgbf1AJEGkomEuyirc3tL.10v1d6S1aYBT.Vec7v6/3Qu74ObTz5u\",\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"menna@library.com\",\n    \"role\": \"LIBRARIAN\",\n    \"enabled\": true,\n    \"createdAt\": null,\n    \"updatedAt\": null,\n    \"authorities\": [\n        {\n            \"authority\": \"ROLE_LIBRARIAN\"\n        }\n    ],\n    \"accountNonExpired\": true,\n    \"credentialsNonExpired\": true,\n    \"accountNonLocked\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"updateduser\",\r\n    \"firstName\": \"Updated\",\r\n    \"lastName\": \"User\",\r\n    \"email\": \"updated@library.com\",\r\n    \"role\": \"STAFF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/users/4"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/users/1"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/api/users/1"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:17:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"password123\",\n    \"firstName\": \"New\",\n    \"lastName\": \"User\",\n    \"email\": \"newuser@library.com\",\n    \"role\": \"STAFF\"\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "{{workspaceId}}",
+									"description": "Optional. A workspace ID in which to create the collection.\n\nIf you do not include this query parameter, the system creates the collection in your \"My Workspace\" workspace.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include a `collection` object in the request body that contains the following required properties:\n\n*   `info` — An **object** that contains the following properties:\n    *   `name` — A **string** value that contains the collection's name.\n    *   `schema` — A **string** that contains a URL to the collection's schema. For example, the `https://schema.getpostman.com/collection/v1` URL.\n*   `item` — An **object** that contains the HTTP request and response information.\n    *   `request` — An **object** that contains the collection's request information. For a complete list of values, refer to the `definitions.request` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). If you pass an empty object for this value, the system defaults to an untitled GET request.\n\n**Note:**\n\n*   For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):\n    *   `info` object — Use the `definitions.info` entry.\n    *   `item` object — Use the `definitions.items` entry.\n*   For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": []
+				},
+				{
+					"name": "getUserInfo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "{{accessKey}}",
+									"description": "Optional. A collection's read-only access key. Using this query parameter does not require an API key to call the endpoint.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)."
+					},
+					"response": []
+				}
+			],
+			"description": "The `/collections` endpoints let you manage your [collections](https://learning.postman.com/docs/sending-requests/intro-to-collections/)."
+		},
+		{
+			"name": "BookManagement",
+			"item": [
+				{
+					"name": "getAllBooks",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/books"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/books"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:39:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Harry Potter and the Philosopher's Stone\",\n        \"isbn\": \"978-0-7475-3269-9\",\n        \"publicationYear\": \"1997\",\n        \"edition\": \"First Edition\",\n        \"category\": \"FICTION\",\n        \"totalCopies\": 5,\n        \"availableCopies\": 5,\n        \"createdAt\": \"2025-07-03T05:29:28.294832\",\n        \"authors\": [],\n        \"available\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getAllAvailableBooks",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/books/available"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/books"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:39:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Harry Potter and the Philosopher's Stone\",\n        \"isbn\": \"978-0-7475-3269-9\",\n        \"publicationYear\": \"1997\",\n        \"edition\": \"First Edition\",\n        \"category\": \"FICTION\",\n        \"totalCopies\": 5,\n        \"availableCopies\": 5,\n        \"createdAt\": \"2025-07-03T05:29:28.294832\",\n        \"authors\": [],\n        \"available\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getBookById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/books/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/books/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:40:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Harry Potter and the Philosopher's Stone\",\n    \"isbn\": \"978-0-7475-3269-9\",\n    \"publicationYear\": \"1997\",\n    \"edition\": \"First Edition\",\n    \"category\": \"FICTION\",\n    \"totalCopies\": 5,\n    \"availableCopies\": 5,\n    \"createdAt\": \"2025-07-03T05:29:28.294832\",\n    \"authors\": [],\n    \"available\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "createBook",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n    \"isbn\": \"978-0-7475-3269-9\",\r\n    \"publicationYear\": \"1997\",\r\n    \"edition\": \"First Edition\",\r\n    \"category\": \"FICTION\",\r\n    \"totalCopies\": 5,\r\n    \"availableCopies\": 5,\r\n    \"authors\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/books"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n    \"isbn\": \"978-0-7475-3269-9\",\r\n    \"publicationYear\": \"1997\",\r\n    \"edition\": \"First Edition\",\r\n    \"category\": \"FICTION\",\r\n    \"totalCopies\": 5,\r\n    \"availableCopies\": 5,\r\n    \"authors\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/books"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:29:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Harry Potter and the Philosopher's Stone\",\n    \"isbn\": \"978-0-7475-3269-9\",\n    \"publicationYear\": \"1997\",\n    \"edition\": \"First Edition\",\n    \"category\": \"FICTION\",\n    \"totalCopies\": 5,\n    \"availableCopies\": 5,\n    \"createdAt\": \"2025-07-03T05:29:28.2948322\",\n    \"authors\": [],\n    \"available\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "updateBook",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated Book Title\",\r\n    \"isbn\": \"978-0-7475-3269-9\",\r\n    \"publicationYear\": \"1997\",\r\n    \"edition\": \"Second Edition\",\r\n    \"category\": \"FICTION\",\r\n    \"totalCopies\": 3,\r\n    \"availableCopies\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/books/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Updated Book Title\",\r\n    \"isbn\": \"978-0-7475-3269-9\",\r\n    \"publicationYear\": \"1997\",\r\n    \"edition\": \"Second Edition\",\r\n    \"category\": \"FICTION\",\r\n    \"totalCopies\": 3,\r\n    \"availableCopies\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/books/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:42:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Updated Book Title\",\n    \"isbn\": \"978-0-7475-3269-9\",\n    \"publicationYear\": \"1997\",\n    \"edition\": \"Second Edition\",\n    \"category\": \"FICTION\",\n    \"totalCopies\": 3,\n    \"availableCopies\": 2,\n    \"createdAt\": null,\n    \"authors\": [],\n    \"available\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteBook",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/books/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/api/books/1"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:44:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MemberManagement",
+			"item": [
+				{
+					"name": "getAllMembers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/members"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/members"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:53:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@email.com\",\n        \"phone\": \"123-456-7890\",\n        \"memberId\": null,\n        \"active\": true,\n        \"membershipDate\": \"2025-07-03\",\n        \"createdAt\": \"2025-07-03T05:52:32.669927\",\n        \"borrowingTransactions\": [],\n        \"fullName\": \"John Doe\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getMemberById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/members/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/members/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:54:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@email.com\",\n    \"phone\": \"123-456-7890\",\n    \"memberId\": null,\n    \"active\": true,\n    \"membershipDate\": \"2025-07-03\",\n    \"createdAt\": \"2025-07-03T05:52:32.669927\",\n    \"borrowingTransactions\": [],\n    \"fullName\": \"John Doe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getActiveMember",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/members/active"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/members/active"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:54:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@email.com\",\n        \"phone\": \"123-456-7890\",\n        \"memberId\": null,\n        \"active\": true,\n        \"membershipDate\": \"2025-07-03\",\n        \"createdAt\": \"2025-07-03T05:52:32.669927\",\n        \"borrowingTransactions\": [],\n        \"fullName\": \"John Doe\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "createMember",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "lib123",
+								"username": "librarian"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@email.com\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"member_id\": \"LIB001\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/members"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@email.com\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"member_id\": \"LIB001\",\r\n    \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/members"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:52:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@email.com\",\n    \"phone\": \"123-456-7890\",\n    \"memberId\": null,\n    \"active\": true,\n    \"membershipDate\": \"2025-07-03\",\n    \"createdAt\": \"2025-07-03T05:52:32.6699265\",\n    \"borrowingTransactions\": null,\n    \"fullName\": \"John Doe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateMember",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"john.smith@email.com\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"member_id\": \"LIB001\",\r\n    \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/members/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"john.smith@email.com\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"member_id\": \"LIB001\",\r\n    \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/members/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 03:02:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n    \"email\": \"john.smith@email.com\",\n    \"phone\": \"123-456-7890\",\n    \"memberId\": null,\n    \"active\": true,\n    \"membershipDate\": \"2025-07-03\",\n    \"createdAt\": null,\n    \"borrowingTransactions\": [],\n    \"fullName\": \"John Smith\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteMember",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseUrl}}/api/members/1"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{baseUrl}}/api/members/1"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 02:59:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "BorrowingTransactions",
+			"item": [
+				{
+					"name": "Get All Borrowing Transactions",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/borrowing-transactions"
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/borrowing-transactions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Jul 2025 03:04:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Get Transaction by ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/borrowing-transactions/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Borrow Book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"member\": {\r\n        \"id\": 1\r\n    },\r\n    \"book\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/borrowing-transactions"
+					},
+					"response": []
+				},
+				{
+					"name": "Return Book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "staff123",
+								"username": "staff"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"member\": {\r\n        \"id\": 1\r\n    },\r\n    \"book\": {\r\n        \"id\": 1\r\n    },\r\n    \"returnDate\": \"2024-07-10\"\r\n}"
+						},
+						"url": "{{baseUrl}}/api/borrowing-transactions/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin123",
+								"username": "admin"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"member\": {\r\n        \"id\": 1\r\n    },\r\n    \"book\": {\r\n        \"id\": 1\r\n    }\r\n}"
+						},
+						"url": "{{baseUrl}}/api/borrowing-transactions/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DB console",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "JDBC URL",
+							"value": "jdbc:h2:mem:library",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "{{baseUrl}}/h2-console"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
