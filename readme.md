@@ -263,5 +263,6 @@ This project is developed as part of a technical assessment for CODE81. All righ
 - No pagination for large datasets
 
 ---
-
-**Built with ❤️ using Spring Boot, JPA, and Java 21
+<p align="center">
+  <strong>Built with ❤️ using Spring Boot, JPA, and Java 21</strong>
+</p>
