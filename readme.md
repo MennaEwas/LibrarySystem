@@ -177,6 +177,8 @@ Content-Type: application/json
 ```
 
 ## Database Schema
+![alt text](erd.png)
+![alt text](RelDia.png)
 
 ### Key Tables
 - **users** - System users with authentication and role information
